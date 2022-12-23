@@ -2,6 +2,12 @@
 
 <h1> Chat App </h1>
 
+  ## Tech stacks used :
+* **NextJS**
+* **Chakra-UI**
+* **MongoDB(Backend)**
+* **Web Sockets**
+
  <h1>1. Sign Up  </h1>
 
 ![image](https://user-images.githubusercontent.com/99732532/209317271-56522d82-515d-488e-a51b-76ade4bc704c.png)
