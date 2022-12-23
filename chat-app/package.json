@@ -21,10 +21,13 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.8.1",
     "next": "13.0.7",
-    "react": "18.2.0",
+    "react": "^18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
+    "react-slick": "^0.29.0",
+    "react-swiper": "^0.1.5",
     "socket.io": "^4.5.4",
+    "swiper": "^8.4.5",
     "socket.io-client": "^4.5.4"
   }
 }
