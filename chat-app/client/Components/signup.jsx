@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import axios from "axios";
 import {
   Box,
   Button,
@@ -7,38 +8,22 @@ import {
   FormControl,
   FormLabel,
   Heading,
-  HStack,
   Input,
   InputGroup,
-  InputLeftAddon,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  PinInput,
-  PinInputField,
-  Text,
-  useColorMode,
-  useColorModeValue,
-  useDisclosure,
   useToast,
   InputRightElement,
   Container,
 } from "@chakra-ui/react"
 
-import logo from "./Image/logo.jpg"
 
-import {IoSunny, IoMoon, IoPieChartSharp} from "react-icons/io5"
-import AuthSlider from './AuthSlider'
 
 const signUpInitValue = {
   name: "",
   email: "",
   password: "",
 };
+
+
 
 function signup() {
 
@@ -48,7 +33,18 @@ function signup() {
   const [loading,setloading] = useState(false)
   const toast = useToast()
 
+  const getData = async(payload) => {
+    return axios.post("http://localhost:3000/api/signup",payload);
+  }
 
+  const handleSubmit = async(e)=> {
+    // e.preventDefault();
+
+    // if(signup.email == "" || signup.password == "" || signup.name == "") {
+    //   return alert("please Fill the details.")
+    // }
+    const data = await getData({...signup})
+  }
 
   const postDetails = (pics) => {
      setloading(true);
@@ -97,7 +93,7 @@ function signup() {
     const { name, value } = e.target;
     setSignup({ ...signup, [name]: value });
   };
-  // console.log(signup)
+  console.log(signup)
 
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
@@ -117,7 +113,7 @@ function signup() {
             justifyContent={"center"}
            
             >
-            <form >
+            <form onSubmit={handleSubmit}>
             <Flex
             direction={"column"}
             // background={"gray.100"}
@@ -140,9 +136,11 @@ function signup() {
               <Input placeholder='Enter your Email...'
                variant={"filled"}
                mb={3}
+               onChange={handelChange}
                name="email"
                type="email"
                required
+
                />
          <FormLabel>Password</FormLabel>
          <InputGroup>
@@ -169,7 +167,7 @@ function signup() {
               accept="image/*"
               />       
               <br/>
-            <Button 
+            <Button onClick={handleSubmit}
             colorScheme={"teal"}
             isLoading = {loading}
             >Sign up</Button>
