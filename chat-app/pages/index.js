@@ -22,7 +22,8 @@ export default function Home() {
    <Box  css={{
           backgroundImage: useColorModeValue(CONFETTI_LIGHT, CONFETTI_DARK),
           backgroundAttachment: 'fixed',
-        }}> <LoginSignup/></Box>
+        }}> <LoginSignup/>
+        </Box>
  
   
    </div>

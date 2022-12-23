@@ -6,9 +6,7 @@ import {IoSunny, IoMoon} from "react-icons/io5"
 function LoginSignup() {
     const [account, setAccount] = useState("Login");
     
-    const toggleAccount = () => {
-            account == "Login" ? setAccount("Signup") : setAccount("Login");
-          };
+   
 
   const {toggleColorMode} = useColorMode()
 
